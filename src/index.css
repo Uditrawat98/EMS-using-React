@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    color: white;
+  }
+}
+
+.admin-form input,
+.admin-form textarea {
+  color: #fff;
+}
+
+.admin-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+#tasklist::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
