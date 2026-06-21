@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const Header = ({ data }) => {
+const Header = ({ data, onLogout }) => {
     const [username, setUsername] = useState(() => (data ? data.firstName : 'Admin'))
 
     useEffect(() => {
@@ -12,9 +12,8 @@ const Header = ({ data }) => {
     }, [data])
 
     const logOutUser = () => {
-        localStorage.setItem('loggedInUser','')
-        props.changeUser('')
-        window.location.reload()
+        localStorage.removeItem('loggedInUser')
+        if (onLogout) onLogout()
     }
 
     return (

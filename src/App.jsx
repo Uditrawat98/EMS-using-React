@@ -62,14 +62,20 @@ useEffect(()=>{
     }
   };
 
+  const handleLogout = () => {
+    setUser(null);
+    setLoggedInUserData(null);
+    localStorage.removeItem("loggedInUser");
+  };
+
   return (
     <>
       {!user && <Login handleLogin={handleLogin} />}
 
-      {user === "admin" && <AdminDashboard />}
+      {user === "admin" && <AdminDashboard onLogout={handleLogout} />}
 
       {user === "employee" && (
-        <EmployeeDashboard data={loggedInUserData} />
+        <EmployeeDashboard data={loggedInUserData} onLogout={handleLogout} />
       )}
     </>
   );
